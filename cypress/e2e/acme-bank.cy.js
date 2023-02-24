@@ -35,6 +35,8 @@ describe('ACME Bank', () => {
 
         // Load the login page.
         cy.visit('https://demo.applitools.com')
+        // Or load this page to introduce some diffs
+        //cy.visit('https://demo.applitools.com/index_v2.html')
 
         // Verify the full login page loaded correctly.
         cy.eyesCheckWindow({
@@ -54,7 +56,11 @@ describe('ACME Bank', () => {
             tag: "Main page",
             target: 'window',
             fully: true,
-            matchLevel: 'Layout'
+            //matchLevel: 'Layout'
+            matchLevel: 'Strict',
+            layout: {
+                selector: '#time'
+            }
         });
     })
 
